@@ -221,37 +221,3 @@ if __name__ == '__main__':
         choice = {1: add_book, 2: display, 3: update_book, 4: delete_book, 5: add_csv,
                   6: add_json, 7:read_csv, 8:read_json}
         choice.get(n)()
-
-        # if n == 1:
-        #     f_name = input("Enter First Name: ")
-        #     l_name = input("Enter Last Name: ")
-        #     address = input("Enter address: ")
-        #     state = input("Enter state: ")
-        #     city = input("Enter city: ")
-        #     zip = input("Enter zip: ")
-        #     mob = input("Enter mob: ")
-        #     email = input("Enter email: ")
-        #     con = Contacts(f_name,l_name,address,state,city,zip,mob,email)
-        #     Add.add_person(con)
-        # elif n == 2:
-        #     Add.display()
-        # elif n == 3:
-        #     f_name = input("Enter name to update: ")
-        #     l_name = input("Enter Last Name: ")
-        #     address = input("Enter address: ")
-        #     state = input("Enter state: ")
-        #     city = input("Enter city: ")
-        #     zip = input("Enter zip: ")
-        #     mob = input("Enter mob: ")
-        #     email = input("Enter email: ")
-        #     con = Contacts(f_name, l_name, address, state, city, zip, mob, email)
-        #     Add.update(con)
-        # elif n == 4:
-        #     name = input("Enter name to update: ")
-        #     Add.delete(name)
-        # elif n == 5:
-        #     Add.addtoCSV()
-        # elif n == 6:
-        #     Add.addtojson()
-        # else:
-        #     break
