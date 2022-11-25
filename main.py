@@ -213,45 +213,12 @@ def read_json():
 if __name__ == '__main__':
     multi_addressbook = MultipleAddressbook()
     while True:
-        print("1.Add Person\n2.Display person\n3.Update Person\n4.Delete\n5.Save to csv\n6.save to json\n7.read csv\n8.read json\n9.Exit")
+        print("1. Add Person\n2. Display person\n3. Update Person\n4. Delete\n5. Save to csv"
+              "\n6. save to json\n7. read csv\n8. read json\n9. Exit")
         n = int(input("Enter choice: "))
 
         if n == 0:
             break
         choice = {1: add_book, 2: display, 3: update_book, 4: delete_book, 5: add_csv,
-                  6: add_json, 7:read_csv, 8:read_json}
+                  6: add_json, 7: read_csv, 8: read_json}
         choice.get(n)()
-
-        # if n == 1:
-        #     f_name = input("Enter First Name: ")
-        #     l_name = input("Enter Last Name: ")
-        #     address = input("Enter address: ")
-        #     state = input("Enter state: ")
-        #     city = input("Enter city: ")
-        #     zip = input("Enter zip: ")
-        #     mob = input("Enter mob: ")
-        #     email = input("Enter email: ")
-        #     con = Contacts(f_name,l_name,address,state,city,zip,mob,email)
-        #     Add.add_person(con)
-        # elif n == 2:
-        #     Add.display()
-        # elif n == 3:
-        #     f_name = input("Enter name to update: ")
-        #     l_name = input("Enter Last Name: ")
-        #     address = input("Enter address: ")
-        #     state = input("Enter state: ")
-        #     city = input("Enter city: ")
-        #     zip = input("Enter zip: ")
-        #     mob = input("Enter mob: ")
-        #     email = input("Enter email: ")
-        #     con = Contacts(f_name, l_name, address, state, city, zip, mob, email)
-        #     Add.update(con)
-        # elif n == 4:
-        #     name = input("Enter name to update: ")
-        #     Add.delete(name)
-        # elif n == 5:
-        #     Add.addtoCSV()
-        # elif n == 6:
-        #     Add.addtojson()
-        # else:
-        #     break
