@@ -1,8 +1,9 @@
 import csv
 import json
 
+
 class Contacts:
-    def __init__(self,first_name,last_name,address,state,city,zip,phone_number,email):
+    def __init__(self, first_name, last_name, address, state, city, zip, phone_number, email):
         self.first_name = first_name
         self.last_name = last_name
         self.address = address
@@ -11,18 +12,20 @@ class Contacts:
         self.zip = zip
         self.phone_number = phone_number
         self.email = email
+
     def to_dict(self):
         try:
-            return {'first_name':self.first_name}
+            return {'first_name': self.first_name}
         except Exception as ex:
             print(ex)
 
+
 class Addressbook:
-    def __init__(self,book_name):
+    def __init__(self, book_name):
         self.people = {}
         self.book_name = book_name
 
-    def add_person(self,con_obj):
+    def add_person(self, con_obj):
         try:
             if con_obj.first_name in self.people:
                 print("Person already present")
@@ -46,7 +49,8 @@ class Addressbook:
                 print("\temail: {}".format(i.email))
         except Exception as ex:
             print(ex)
-    def update(self,con_obj):
+
+    def update(self, con_obj):
         try:
             if con_obj.first_name not in self.people:
                 print("Person is not present")
@@ -56,7 +60,7 @@ class Addressbook:
         except Exception as ex:
             print(ex)
 
-    def delete(self,name):
+    def delete(self, name):
         try:
             for i in self.people.values():
                 if name != i.first_name:
@@ -67,19 +71,20 @@ class Addressbook:
         except Exception as ex:
             print(ex)
 
+
 class MultipleAddressbook:
     def __init__(self):
         self.multi_book = {}
         self.dict = {}
 
-    def add_multi(self,address_obj):
+    def add_multi(self, address_obj):
         try:
             self.multi_book.update({address_obj.book_name: address_obj})
             print("AddressBook added")
         except Exception as ex:
             print(ex)
 
-    def get_addressbook(self,book_name):
+    def get_addressbook(self, book_name):
         return self.multi_book.get(book_name)
 
     def display_addressbook(self):
@@ -91,7 +96,7 @@ class MultipleAddressbook:
             print("pro")
             print(ex)
 
-    def delete_book(self,book_name):
+    def delete_book(self, book_name):
         try:
             if book_name not in self.multi_book.keys():
                 print("book is not present")
@@ -100,6 +105,7 @@ class MultipleAddressbook:
             print("AddressBook deleted")
         except Exception as ex:
             print(ex)
+
     def addtoCSV(self):
         try:
             with open('addressBook.csv', 'w', newline='') as file:
@@ -109,17 +115,18 @@ class MultipleAddressbook:
                     writer.writerow(v.people.keys())
         except Exception as ex:
             print(ex)
+
     def addtojson(self):
         try:
             filename = 'Sample.json'
-            for k,v in self.multi_book.items():
+            for k, v in self.multi_book.items():
                 for c in v.people.items():
                     if k not in self.dict:
                         for i in range(1):
-                            self.dict.update({k:c[1].to_dict()})
+                            self.dict.update({k: c[1].to_dict()})
             print(self.dict)
-            with open(filename,'w') as file:
-                 json.dump(self.dict,file,indent=4)
+            with open(filename, 'w') as file:
+                json.dump(self.dict, file, indent=4)
         except Exception as ex:
             print(ex)
 
@@ -161,11 +168,14 @@ def add_book():
     except Exception as ex:
         print(ex)
 
+
 def display():
     try:
         multi_addressbook.display_addressbook()
     except Exception as ex:
         print(ex)
+
+
 def update_book():
     try:
         book_name = input("Enter Book Name: ")
@@ -188,27 +198,36 @@ def update_book():
     except Exception as ex:
         print(ex)
 
+
 def delete_book():
     try:
         name = input("Enter name to update: ")
         multi_addressbook.delete_book(name)
     except Exception as ex:
         print(ex)
+
+
 def add_csv():
     try:
         multi_addressbook.addtoCSV()
     except Exception as ex:
         print(ex)
+
+
 def add_json():
     try:
         multi_addressbook.addtojson()
     except Exception as ex:
         print(ex)
+
+
 def read_csv():
     multi_addressbook.read_csv()
 
+
 def read_json():
     multi_addressbook.read_json()
+
 
 if __name__ == '__main__':
     multi_addressbook = MultipleAddressbook()
